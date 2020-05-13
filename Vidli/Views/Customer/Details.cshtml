@@ -1,0 +1,17 @@
+﻿@model Vidli.Models.CustomerModel
+
+@{
+    ViewBag.Title = Model.CustomerName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.CustomerName</h2>
+
+<ul>
+    <li> Membership Type: @Model.MembershipType.Name</li>
+    @if (Model.CustomerAge > 0)
+    {
+        <li> Customer Age : @Model.CustomerAge</li>
+    }
+</ul>
+

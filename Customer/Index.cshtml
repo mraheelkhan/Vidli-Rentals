@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Vidli.Models.CustomerModel>
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>Customers List</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Count() > 0)
+        {
+            foreach (var customer in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(customer.CustomerName, "Details", new { id = customer.Id }, null)
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td> Currently no customers</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+

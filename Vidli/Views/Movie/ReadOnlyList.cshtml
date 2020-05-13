@@ -1,0 +1,65 @@
+﻿@*@model IEnumerable<Vidli.Models.MovieModel>*@
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table id="movies" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Movies List</th>
+        <th>Genere</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @*@if (Model.Count() > 0)
+        {
+            foreach (var movie in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(movie.Name, "Edit", new { Id = movie.Id }, null)
+                    </td>
+                    <td> @movie.Genre.Name</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td> Currently no movies</td>
+            </tr>
+        }*@
+
+
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        var table = $("#movies").DataTable({
+            ajax: {
+                url: "api/movies",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "name",
+                    
+                },
+                {
+                    data: "genre.name"
+                },
+               
+            ]
+        });
+
+        
+    </script>
+}
+
+

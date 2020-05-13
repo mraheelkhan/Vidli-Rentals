@@ -1,0 +1,66 @@
+﻿@*@model IEnumerable<Vidli.Models.CustomerModel>*@
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<table id="customers" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Customers List</th>
+            <th>Membership Type</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+
+        @*@if (Model.Count() > 0)
+        {
+            foreach (var customer in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(customer.CustomerName, "Edit", new { id = customer.Id }, null)
+                    </td>
+                    <td>
+                        @customer.MembershipType.Name
+                    </td>
+                    <td>
+                        <button data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td> Currently no customers</td>
+            </tr>
+        }*@
+    </tbody>
+</table>
+
+@section scripts {
+    <script>
+        var table =  $("#customers").DataTable({
+            ajax: {
+                url: "api/customers",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "customerName",
+                    
+                },
+                {
+                    data: "membershipType.name",
+                },
+               
+            ]
+        });
+
+
+     
+    </script>
+}

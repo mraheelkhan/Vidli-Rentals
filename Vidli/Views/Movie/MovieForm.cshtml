@@ -1,0 +1,48 @@
+﻿@model Vidli.ViewModels.MovieFormViewModel
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@using (@Html.BeginForm("Save", "Movie"))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ReleaseDate)
+        @Html.TextBoxFor(model => model.ReleaseDate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ReleaseDate)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateAdded)
+        @Html.TextBoxFor(model => model.DateAdded, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.DateAdded)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GenreId)
+        @Html.DropDownListFor(model => model.GenreId, new SelectList(Model.Genre, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.GenreId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NumberInStock)
+        @Html.TextBoxFor(model => model.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NumberInStock)
+    </div>
+
+    @Html.HiddenFor(model => model.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Vidli.Models.MovieModel>
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>Movies List</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Count() > 0)
+        {
+            foreach (var movie in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(movie.Name, "Details/", new { Id = movie.Id }, null)
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td> Currently no movies</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+

@@ -1,0 +1,46 @@
+﻿@model Vidli.ViewModels.CustomFormViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Customer"))
+{
+    @Html.ValidationSummary(true, "Fix the following red errors")
+    <div class="form-group">
+        @Html.LabelFor(model => model.CustomerName)
+        @Html.TextBoxFor(model => model.CustomerName, new { @class = "form-control", placeholder = "Enter Customer Name" })
+        @Html.ValidationMessageFor(model => model.CustomerName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CustomerAddress)
+        @Html.TextBoxFor(model => model.CustomerAddress, new { @class = "form-control", placeholder = "Enter Customer Address" })
+        @Html.ValidationMessageFor(model => model.CustomerAddress)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MemberShipTypeId)
+        @Html.DropDownListFor(model => model.MemberShipTypeId, new SelectList(Model.MembershipType, "Id", "Name"), "Select Membership Type", new { @class = "form-control", placeholder = "Enter Customer Address" })
+        @Html.ValidationMessageFor(model => model.MemberShipTypeId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CustomerAge)
+        @Html.TextBoxFor(model => model.CustomerAge, new { @class = "form-control", placeholder = "Enter Customer Age" })
+        @Html.ValidationMessageFor(model => model.CustomerAge)
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(model => model.IsSubscribedToNewsletter) Subscribe to Newsletter?
+        </label>
+    </div>
+    @Html.HiddenFor(model => model.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

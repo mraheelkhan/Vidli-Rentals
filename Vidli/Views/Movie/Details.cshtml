@@ -1,0 +1,17 @@
+﻿@model Vidli.Models.MovieModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<h2>@Model.Name</h2>
+
+<ul>
+    <li>Genre: @Model.Genre.Name</li>
+    <li>Release Date: @Model.ReleaseDate.Value.ToString("MMMM dd, yyyy")</li>
+    <li>Date Added: @Model.DateAdded.Value.ToString("MMMM dd, yyyy")</li>
+    <li>Number in Stock: @Model.NumberInStock</li>
+</ul>
+
+
