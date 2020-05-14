@@ -23,12 +23,22 @@ namespace Vidli.Controllers.Api
 
         // GET /api/movies/
         // [Authorize(Roles = RoleNames.CanManageMovies)]
-        public IEnumerable<MovieDto> GetMovies()
+        public IEnumerable<MovieDto> GetMovies(string query = null)
         {
-            return _context.Movies
+            var moviesQuery = _context.Movies
+                .Include(c => c.Genre)
+                .Where(m => m.NumberAvailable != 0); ;
+
+            var movies = moviesQuery.Where(m => m.Name.Contains(query));
+           
+            var moviesDto = movies.
+                Select(Mapper.Map<MovieModel, MovieDto>)
+                .ToList();
+            /*return _context.Movies
                 .Include(g => g.Genre)
                 .ToList()
-                .Select(Mapper.Map<MovieModel, MovieDto>);
+                .Select(Mapper.Map<MovieModel, MovieDto>);*/
+            return moviesDto;
         }
 
         // GET /api/movies/1

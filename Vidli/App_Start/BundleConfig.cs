@@ -14,7 +14,8 @@ namespace Vidli
                         "~/scripts/bootbox.js",
                         "~/scripts/datatables/jquery.dataTables.js",
                         "~/scripts/datatables/dataTables.bootstrap.js",
-                        "~/scripts/typeahead.bundle.js"
+                        "~/scripts/typeahead.bundle.js",
+                        "~/scripts/toastr.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -33,6 +34,7 @@ namespace Vidli
                       "~/Content/bootstrap-lumen.min.css",
                       "~/Content/site.css",
                       "~/Content/typeahead.css",
+                      "~/Content/toastr.css",
                       "~/Content/datatables/css/datatables.bootstrap.css"));
         }
     }

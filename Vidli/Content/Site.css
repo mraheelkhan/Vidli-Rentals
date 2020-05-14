@@ -24,12 +24,41 @@ textarea {
 }
 
 
-.field-validation-error {
+.field-validation-error
+{
     color: red;
 }
-.input-validation-error {
+.input-validation-error,
+label > .error {
     border: 1px solid red;
 }
 .validation-summary-errors {
     color: red
+}
+.tt-container {
+    position: relative;
+}
+
+.error {
+    z-index: 999;
+    color: red
+}
+
+.navbar.navbar-inverse.navbar-fixed-top {
+    background: #FF4138;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+.tt-suggestion:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #EBC05E;
+}
+.btn-primary {
+    background-color: #EBC05E;
+    border-color: #EBC05E;
 }
