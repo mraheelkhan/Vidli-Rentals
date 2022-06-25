@@ -135,3 +135,4 @@ C:\Users\DELL\source\repos\Vidli\Vidli\obj\Debug\Vidli.Migrations.SeedDbUsers.re
 C:\Users\DELL\source\repos\Vidli\Vidli\obj\Debug\Vidli.Migrations.AddCustomerRole.resources
 C:\Users\DELL\source\repos\Vidli\Vidli\obj\Debug\Vidli.Migrations.AddRentalsToApplication.resources
 C:\Users\DELL\source\repos\Vidli\Vidli\obj\Debug\Vidli.Migrations.AddNumberAvailableToMovie.resources
+C:\Users\DELL\source\repos\Vidli\Vidli\obj\Debug\Vidli.csproj.CoreCompileInputs.cache
